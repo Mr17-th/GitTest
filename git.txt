@@ -29,3 +29,10 @@ Git远程仓库
 第2步：登陆GitHub，打开“Account settings”，“SSH Keys”页面：
 然后，点“Add SSH Key”，填上任意Title，在Key文本框里粘贴id_rsa.pub文件的内容：
 
+添加远程库
+	GitHub创建一个Git仓库 “Create a new repo”
+本地仓库与之关联 添加后 远程库的名字就是origin，这是Git默认的叫法，也可以改成别的
+	git remote add origin https://github.com/Mr17-th/GitTest.git
+把本地库的所有内容推送到远程库上
+	 git push -u origin master
+
