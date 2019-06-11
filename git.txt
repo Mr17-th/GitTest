@@ -41,3 +41,10 @@ Git远程仓库
 GitHub给出的地址不止一个，还可以用https://github.com/Mr17-th/GitClone.git
 实际上，Git支持多种协议，默认的git://使用ssh，但也可以使用https等其他协议。
 Git支持多种协议，包括https，但通过ssh支持的原生git协议速度最快。https还有个最大的麻烦是每次推送都必须输入口令，但是在某些只开放http端口的公司内部就无法使用ssh协议而只能用https。
+
+创建分支
+git checkout -b dev == （git branch dev和git checkout dev）	//创建并切换
+查看当前分支
+git branch
+切换回master分支
+git checkout master
