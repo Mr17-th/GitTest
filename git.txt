@@ -51,3 +51,15 @@ Git支持多种协议，包括https，但通过ssh支持的原生git协议速度
 
 合并分支时，加上--no-ff参数就可以用普通模式合并，合并后的历史有分支，能看出来曾经做过合并，而fast forward合并就看不出来曾经做过合并
 git merge --no-ff -m "merge with no-ff" dev
+
+当前工作现场“储藏”起来
+git stash
+查看工作现场储藏列表
+git stash list
+恢复工作现场
+	git stash apply恢复 stash内容并不删除
+	需要git stash drop删除；
+	另一种方式是用git stash pop，恢复的同时把stash内容也删了：
+可以多次stash，恢复的时候，先用git stash list查看，然后恢复指定的stash，用命令：
+git stash apply stash@{0}
+
