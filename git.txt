@@ -99,3 +99,31 @@ Git工作区根目录下创建一个特殊的.gitignore文件，然后把要忽�
 git add -f <filename>
 用git check-ignore命令检查忽略规则
 git check-ignore -v <filename>
+ 
+配置别名
+st就表示status
+git config --global alias.st status
+git config --global alias.unstage 'reset HEAD'
+git config --global alias.last 'log -1'
+git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+
+搭建Git服务器
+1.安装git
+sudo apt-get install git
+2.创建一个git用户，用来运行git服务
+sudo adduser git
+3.创建证书登录
+收集所有需要登录的用户的公钥（id_rsa.pub文件），把所有公钥导入到/home/git/.ssh/authorized_keys文件里，一行一个
+4.初始化Git仓库 假设是/srv/sample.git 在/srv目录下输入命令
+sudo git init --bare sample.git
+5.为Git仓库指定git用户所有
+sudo chown -R git:git sample.git
+6.禁用shell登录
+创建的git用户不允许登录shell 编辑/etc/passwd文件完成
+git:x:1001:1001:,,,:/home/git:/bin/bash 改为 git:x:1001:1001:,,,:/home/git:/usr/bin/git-shell
+7.克隆远程仓库
+git clone git@server:/srv/sample.git
+
+搭建Git服务器非常简单，通常10分钟即可完成
+要方便管理公钥，用Gitosis
+要像SVN那样变态地控制权限，用Gitolite
