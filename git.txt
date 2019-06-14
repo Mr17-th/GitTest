@@ -80,3 +80,13 @@ git branch --set-upstream-to=origin/dev dev	指定本地dev分支与远程origin
 
 rebase操作可以把本地未push的分叉提交历史整理成直线
 git rebase
+
+标签管理
+git tag <name> 创建标签
+git tag 查看所有标签
+git tag <name> commitid 指定commitID创建标签
+git show <tagname> 查看标签信息
+git tag -d <name> 删除标签
+git push origin <tagname> 推送某个标签到远程
+git push origin --tags 一次性推送全部尚未推送到远程的本地标签 
+git push origin :refs/tags/<tagname> 删除远程标签 先本地删除 然后再push
